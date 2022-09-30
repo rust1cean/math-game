@@ -32,17 +32,29 @@ pub mod math {
         }
     }
 
-    pub struct Task(i32, MathOps, i32);
+    pub struct Task {
+        pub a: i32,
+        pub op: MathOps,
+        pub b: i32,
+    }
 
     impl Task {
+        pub fn new(a: i32, op: MathOps, b: i32) -> Self {
+            Task { a, op, b }
+        }
+
         pub fn as_string(&self) -> String {
-            format!("{} {} {}", self.0, self.1.as_char(), self.2)
+            format!("{} {} {}", self.a, self.op.as_char(), self.b)
+        }
+
+        pub fn answer(&self) -> i32 {
+            self.op.join(self.a, self.b)
         }
     }
 }
 
 pub mod generator {
-    use crate::math::MathOps;
+    use crate::math::{MathOps, Task};
     use rand::Rng;
     use std::ops::Range;
 
@@ -59,11 +71,11 @@ pub mod generator {
         signs.remove(index)
     }
 
-    pub fn gen_task() -> (i32, MathOps, i32) {
+    pub fn gen_task() -> Task {
         let (a, b) = (gen_num(NUM_RANGE), gen_num(NUM_RANGE));
         let op = gen_sign();
 
-        (a, op, b)
+        Task::new(a, op, b)
     }
 
     #[cfg(test)]
