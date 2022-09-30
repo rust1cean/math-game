@@ -31,6 +31,14 @@ pub mod math {
             }
         }
     }
+
+    pub struct Task(i32, MathOps, i32);
+
+    impl Task {
+        pub fn as_string(&self) -> String {
+            format!("{} {} {}", self.0, self.1.as_char(), self.2)
+        }
+    }
 }
 
 pub mod generator {
