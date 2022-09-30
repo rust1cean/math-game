@@ -3,7 +3,7 @@ use crate::task::Task;
 fn main() {
     for _ in 0..=10 {
         let task = Task::gen();
-        println!("{} = {}", task.as_string(), task.answer());
+        println!("{}", task.as_string_with_answer());
     }
 }
 
@@ -111,6 +111,10 @@ mod task {
 
         pub fn as_string(&self) -> String {
             format!("{} {} {}", self.a, self.op.as_char(), self.b)
+        }
+
+        pub fn as_string_with_answer(&self) -> String {
+            format!("{} {} {} = {}", self.a, self.op.as_char(), self.b, self.answer)
         }
 
         pub fn answer(&self) -> i32 {
