@@ -1,7 +1,6 @@
 use rand::Rng;
 use std::ops::Range;
 
-#[derive(Debug)]
 pub enum MathOps {
     Add,
     Sub,

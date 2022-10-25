@@ -3,7 +3,6 @@ use std::ops::Range;
 
 const NUM_RANGE: Range<i8> = -i8::MAX..i8::MAX;
 
-#[derive(Debug)]
 pub struct MathTask {
     pub a: i8,
     pub op: MathOps,

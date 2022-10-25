@@ -3,7 +3,7 @@ use std::thread;
 
 const GAME_STATE_RUN: State = State::Run;
 
-#[derive(Debug, PartialEq)]
+#[derive(PartialEq)]
 pub enum State {
     Run,
     Die,
@@ -35,8 +35,11 @@ impl Game {
 
     fn cycle<'a>(&'a mut self) -> &'a mut Self {
         while self.state == State::Run {
-            self.tasks.iter().for_each(|task| (task.run)());
-            self.tasks.clear()
+            // Complete tasks
+            if self.tasks.len() > 0 {
+                self.tasks.iter().for_each(|task| (task.run)());
+                self.tasks.clear()
+            }
         }
         self
     }
