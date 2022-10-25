@@ -35,7 +35,7 @@ impl Game {
 
     fn cycle<'a>(&'a mut self) -> &'a mut Self {
         while self.state == State::Run {
-            self.tasks.iter_mut().for_each(|task| (task.run)());
+            self.tasks.iter().for_each(|task| (task.run)());
             self.tasks.clear()
         }
         self
