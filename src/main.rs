@@ -1,5 +1,10 @@
-use math_game::Game;
+mod api;
+use api::App;
 
 fn main() {
-    Game::new();
+    App::new().add_task(&home).run();
+}
+
+pub fn home(_: &mut App) {
+    
 }

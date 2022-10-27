@@ -7,10 +7,6 @@ edition = "2021"
 name = "math_game"
 path = "src/main.rs"
 
-[lib]
-name = "math_game"
-path = "src/lib.rs"
-
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

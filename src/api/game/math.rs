@@ -30,20 +30,16 @@ impl MathOps {
             MathOps::Div => Ok(a as i32 / b as i32),
         }
     }
-}
 
-pub trait Generator {
-    fn gen_num(range: Range<i8>) -> i8 {
+    pub fn gen_num(range: Range<i8>) -> i8 {
         rand::thread_rng().gen_range(range)
     }
 
-    fn gen_sign() -> MathOps {
+    // Generates any math operation from MathOps enum
+    pub fn gen_sign() -> MathOps {
         let mut signs: Vec<MathOps> = MathOps::all();
         let len: i8 = signs.len() as i8;
         let index: usize = Self::gen_num(0..len) as usize;
-
         signs.remove(index)
     }
 }
-
-impl Generator for MathOps {}

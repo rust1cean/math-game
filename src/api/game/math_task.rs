@@ -1,4 +1,4 @@
-use crate::math::{MathOps, Generator};
+use crate::math::MathOps;
 use std::ops::Range;
 
 const NUM_RANGE: Range<i8> = -i8::MAX..i8::MAX;
